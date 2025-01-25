@@ -309,7 +309,7 @@ b {
 body {
     font-family: Rubik;
     color: #212A3E;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 32px;
     width: 100%;
@@ -891,6 +891,7 @@ footer section a {
 
     body {
         max-width: initial;
+        font-size: 18px;
         }
 
     header {
