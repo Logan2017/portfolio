@@ -321,6 +321,8 @@ body {
     background-color: #f4f8fb;
     }
 
+/* HEADER */
+
 header {
     display: flex;
     justify-content: center;
@@ -333,10 +335,13 @@ header nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
     }
 
 header nav > a {
     width: 32%;
+    z-index: 7;
     }
 
 header .logo {
@@ -359,14 +364,31 @@ header .logo svg {
         }
 
 header nav ul {
-    width: 68%;
-    display: flex;
-    padding-top: 4px;
-    flex-direction: row;
-    gap: .75rem;
+    display: none;
+    width: 100vw;
+    height: 100%;
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(255, 255, 255, 0.9);
     }
+
+header nav ul li {
+    width: 80%;
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid #212A3E;
+    }
+
+    header nav ul li:last-child {
+        border-bottom: none;
+        }
 
 header nav ul a {
     color: #212A3E;
@@ -383,13 +405,110 @@ header nav ul a.active {
     pointer-events: none;
     font-weight: 600;
     }
-    header nav ul a.active::after {
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: #212A3E;
-        display: block;
+
+header nav ul .btn {
+    width: 100%;
+    padding: 0;
+    color: #212A3E;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 2rem;
+    }
+    header nav ul .btn:hover {
+        color: #a4835f;
+        transition: all .3s;
+        background-color: transparent;
+        font-size: 2rem;
         }
+
+.mobile-menu-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    }
+
+.mobile-menu-icon label {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    }
+
+.mobile-menu-icon span {
+	margin: 0 auto;
+	position: relative;
+    z-index: 4;
+    }
+    .mobile-menu-icon span:before, .mobile-menu-icon span:after {
+        position: absolute;
+        content: '';
+        }
+
+.mobile-menu-icon span, .mobile-menu-icon span:before, .mobile-menu-icon span:after {
+	width: 28px;
+	height: 3px;
+	background-color: #000;
+	display: block;
+    }
+    .mobile-menu-icon span:before {
+        margin-top: -8px;
+        }
+    .mobile-menu-icon span:after {
+        margin-top: 8px;
+        }
+
+.mobile-icon {
+    opacity: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+    cursor: pointer;
+    }
+
+.mobile-menu-icon .icon-mobile {
+	-webkit-transition-duration: 0s; transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+    }
+input.mobile-icon:checked ~ .icon-mobile {
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+    }
+.mobile-menu-icon .icon-mobile:before {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+    }
+input.mobile-icon:checked ~ .icon-mobile:before {
+	margin-top: 0;
+	-webkit-transform: rotate(45deg); transform: rotate(45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+    }
+.mobile-menu-icon .icon-mobile:after {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+    }
+input.mobile-icon:checked ~ .icon-mobile:after {
+	margin-top: 0;
+	-webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+    }
+
+.mobile-icon:checked ~ .submenu {
+    display: flex;
+    z-index: 1;
+    }
+
+
+/* BUTTONS */
 
 .btn {
     background-color: #212A3E;
@@ -421,11 +540,11 @@ header .btn {
 h1 {
     width: 100%;
     margin: 0;
+    margin-bottom: 2rem;
     font-family: Yeseva One;
     font-size: 32px;
     font-weight: 400;
     line-height: 38px;
-    display: inline;
     text-align: center;
     }
 
@@ -733,7 +852,7 @@ section#trabajos {
     display: flex    ;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+    margin: 1rem 0 3rem;
     }
 
 section#trabajos .sectionWrapper {
@@ -906,13 +1025,71 @@ footer section a {
         fill: #394867;
         }
 
+    .mobile-menu-icon { 
+        width: auto;
+        height: auto;
+        }
+
     header nav ul {
+        width: auto;
+        display: flex;
+        font-size: 1.2rem;
+        padding-top: 4px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
         gap: 2rem;
+        position: static;
+        transform: none;
+        background-color: transparent;
+        }
+
+    header nav ul li {
+        width: initial;
+        padding: initial;
+        border-bottom: none;
+        text-align: initial;
+        }
+
+    header nav ul a {
+        color: #212A3E;
+        text-decoration: none;
         }
     
-    header .btn {
-        padding: 12px 24px;
-        font-size: 16px;
+    header nav ul a:hover {
+        color: #a4835f;
+        transition: all .3s;
+        }
+    
+    header nav ul a.active {
+        color: #212A3E;
+        pointer-events: none;
+        font-weight: 600;
+        }
+        header nav ul a.active::after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background-color: #212A3E;
+            display: block;
+            }
+    
+    header nav ul li .btn {
+        width: auto;
+        font-size: 18px;
+        background-color: #212A3E;
+        color: white;
+        padding: 8px 24px;
+        }
+        header nav ul li .btn:hover {
+            font-size: 16px;
+            background-color: #a4835f;
+            color: white;
+            }
+
+    .mobile-menu-icon .mobile-icon,
+    .mobile-menu-icon .icon-mobile {
+        display: none;
         }
 
     h1 {
@@ -1035,7 +1212,7 @@ footer section a {
     /* TRABAJOS */
 
     section#trabajos {
-        margin-top: 5rem;
+        margin-top: 3rem;
         }
 
     section#trabajos .sectionWrapper::before {
