@@ -854,14 +854,14 @@ section.content h2 span {
 
 section.content ol {
     list-style: decimal;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     font-weight: 600;
     margin-left: 1rem;
     }
 
 section.content ul {
     list-style: circle;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     font-weight: 400;
     }
 
