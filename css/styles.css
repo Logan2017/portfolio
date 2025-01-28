@@ -1003,6 +1003,7 @@ footer .footerWrapper {
 footer .footerWrapper .logo {
     height: 50px;
     align-self: center;
+    margin-bottom: 1rem;
     }
 
 footer .footerWrapper .logo svg {
@@ -1019,6 +1020,7 @@ footer title {
 footer section {
     display: flex;
     flex-direction: row;
+    font-size: 1rem;
     }
 
 footer section.copyright {
@@ -1028,6 +1030,7 @@ footer section.copyright {
     display: flex;
     flex-direction: column;
     text-align: center;
+    font-size: 1rem;
     }
 
 footer section div {
