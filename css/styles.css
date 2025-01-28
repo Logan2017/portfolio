@@ -364,7 +364,7 @@ header .logo svg {
         }
 
 header nav ul {
-    display: none;
+    display: flex;
     width: 100vw;
     height: 100%;
     font-size: 2rem;
@@ -373,21 +373,40 @@ header nav ul {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 0;
+    top: -20px;
     left: 50%;
     transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.9);
+    transition: all .5s;
+    opacity: 0;
+    z-index: -1;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
     }
+    .mobile-icon:checked ~ .submenu {
+        top: 0;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        }
 
 header nav ul li {
     width: 80%;
     padding: 2rem 0;
     text-align: center;
-    border-bottom: 1px solid #212A3E;
+    border-bottom: 1px solid rgba(33, 42, 62, 0.25);
+    transform: translate(0 , 65px);
+    transition: all 1s;
     }
-
+    header nav ul li:first-child {
+        transform: translate(0 , 50px);
+        }
     header nav ul li:last-child {
         border-bottom: none;
+        transform: translate(0 , 75px);
+        }
+    .mobile-icon:checked ~ .submenu li {
+        transform: translate(0 , 0);
         }
 
 header nav ul a {
@@ -462,6 +481,9 @@ header nav ul .btn {
     .mobile-menu-icon span:after {
         margin-top: 8px;
         }
+    .mobile-menu-icon span:hover, .mobile-menu-icon span:hover:before, .mobile-menu-icon span:hover:after {
+        background-color: #a4835f;
+        }
 
 .mobile-icon {
     opacity: 0;
@@ -501,10 +523,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
 	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
     }
 
-.mobile-icon:checked ~ .submenu {
-    display: flex;
-    z-index: 1;
-    }
+
 
 
 /* BUTTONS */
@@ -526,6 +545,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     cursor: pointer;
     border: none;
     transition: all .3s;
+    position: relative;
     }
     .btn:hover {
         background-color: #a4835f;
@@ -533,6 +553,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
 
 .btn svg {
     width: 0;
+    display: block;
     overflow: hidden;
     margin: 0 !important;
     margin-left: .25rem !important;
@@ -541,15 +562,26 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     transition: all .3s;
     }
     .btn:hover svg {
-        width: 24px;
-        width: 24px;
-        opacity: 1;
+        }
+
+.btn.comming {
+    background-color: white;
+    color: #212A3E;
+    border: 1px dashed #212A3E;
+    pointer-events: none;
+    }
+    .btn.comming:hover {
+        background-color: white;
+        color: #212A3E;
+        border: 1px dotted #212A3E;
         }
 
 header .btn {
     padding: 6px 12px;
     font-size: 14px;
     }
+
+/* GENERAL */
 
 h1 {
     width: 100%;
@@ -571,7 +603,7 @@ h1 {
     }
 
 .sectionWrapper {
-    max-width: 1024px;
+    max-width: 992px;
     margin: 0 auto;
     }
 
@@ -621,7 +653,7 @@ section#hero h1 {
     }
 
 section#hero img {
-    width: 175vw;
+    width: 105vw;
     }
 
 /* INTRO */
@@ -930,12 +962,16 @@ section#trabajos article {
     }
 
 section#trabajos article div {
+    height: 100%;
     background-color: white;
     padding: 2rem;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
     }
 
 section#trabajos span.tag {
+    width: fit-content;
     text-transform: uppercase;
     font-weight: 600;
     background-color: rgba(164, 131, 95, 0.1    );
@@ -960,6 +996,7 @@ section#trabajos title {
     }
 
 section#trabajos p {
+    height: 100%;
     text-decoration: none;
     font-weight: 400;
     }
@@ -977,6 +1014,8 @@ section#trabajos div > a {
     color: #212A3E;
     font-weight: 400;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
     }
     section#trabajos a:hover {
         color: #212A3E;
@@ -1053,6 +1092,29 @@ footer section a {
         font-size: 18px;
         }
 
+    /* BUTTONS */
+
+    .btn {
+        width: fit-content;
+        }
+
+    .btn svg {
+        width: 0;
+        display: block;
+        overflow: hidden;
+        margin: 0 !important;
+        margin-left: .25rem !important;
+        opacity: 0;
+        fill: #ffffff !important;
+        transition: all .3s;
+        }
+        .btn:hover svg {
+            width: 24px;
+            width: 24px;
+            opacity: 1;
+            padding-left: .5rem;
+            }
+
     header {
         padding: 16px;
         }
@@ -1072,7 +1134,6 @@ footer section a {
 
     header nav ul {
         width: auto;
-        display: flex;
         font-size: 1.2rem;
         padding-top: 4px;
         flex-direction: row;
@@ -1082,6 +1143,9 @@ footer section a {
         position: static;
         transform: none;
         background-color: transparent;
+        opacity: 1;
+        backdrop-filter: none;
+        z-index: 5;
         }
 
     header nav ul li {
@@ -1089,7 +1153,13 @@ footer section a {
         padding: initial;
         border-bottom: none;
         text-align: initial;
+        transform: none;
+        pointer-events: all;
         }
+        header nav ul li:first-child ,
+        header nav ul li:last-child {
+            transform: none;
+            }
 
     header nav ul a {
         color: #212A3E;
@@ -1131,6 +1201,7 @@ footer section a {
     
     header nav ul li .btn {
         width: auto;
+        min-width: auto;
         font-size: 18px;
         background-color: #212A3E;
         color: white;
@@ -1284,6 +1355,10 @@ footer section a {
 
     section#trabajos svg {
         margin-bottom: 8rem;
+        }
+
+    section#trabajos article {
+        width: 50%;
         }
 
     /* FOOTER */
