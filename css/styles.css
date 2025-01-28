@@ -340,7 +340,7 @@ header nav {
     }
 
 header nav > a {
-    width: 32%;
+    width: auto;
     z-index: 7;
     }
 
@@ -404,6 +404,7 @@ header nav ul a.active {
     color: #212A3E;
     pointer-events: none;
     font-weight: 600;
+    cursor: default;
     }
 
 header nav ul .btn {
@@ -426,10 +427,8 @@ header nav ul .btn {
     width: 40px;
     height: 40px;
     box-sizing: border-box;
-    cursor: pointer;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     }
 
 .mobile-menu-icon label {
@@ -530,6 +529,21 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     }
     .btn:hover {
         background-color: #a4835f;
+        }
+
+.btn svg {
+    width: 0;
+    overflow: hidden;
+    margin: 0 !important;
+    margin-left: .25rem !important;
+    opacity: 0;
+    fill: #ffffff !important;
+    transition: all .3s;
+    }
+    .btn:hover svg {
+        width: 24px;
+        width: 24px;
+        opacity: 1;
         }
 
 header .btn {
@@ -679,7 +693,7 @@ section.highlight h2 {
         }
 
 section.highlight .highlight-wrapper > div {
-    min-width: 200px;
+    min-width: 280px;
     }
 
 section.highlight .highlight-wrapper title {
@@ -687,7 +701,7 @@ section.highlight .highlight-wrapper title {
     color: #212A3E;
     font-family: 'Rubik';
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.25rem;
     }
 
 section.highlight .highlight-wrapper title::before {
@@ -724,7 +738,7 @@ section.highlight .highlight-wrapper {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     width: min-content;
     margin: 0 auto;
     }
@@ -781,11 +795,11 @@ section.content h2 {
     display: flex;
     align-items: flex-start;
     gap: .25rem;
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 1rem;
     }
 
 section.content h2 svg {
-    margin-top: 3px;
+    margin-top: 4px;
     fill:#a4835f !important;
     }
     section.content.discovery h2 svg {
@@ -800,11 +814,17 @@ section.content h2 svg {
     section.content.implementation h2 svg {
         fill: #00CF26;
         }
+section.content h2 span {
+    width: calc(100% - 36px);
+    text-align: left;
+    padding-left: 4px;
+    }
 
 section.content ol {
     list-style: decimal;
     padding-left: 1rem;
     font-weight: 600;
+    margin-left: .5rem;
     }
 
 section.content ul {
@@ -813,9 +833,16 @@ section.content ul {
     font-weight: 400;
     }
 
+section.content ul li ,
+section.content ol li {
+    padding-bottom: .5rem;
+    }
+
 section.content ol ul {
     padding-bottom: 1rem;
     }
+
+
 
 section.content img {
     border-radius: 20px;
@@ -934,15 +961,25 @@ section#trabajos title {
 
 section#trabajos p {
     text-decoration: none;
+    font-weight: 400;
     }
 
-section#trabajos a {
+section#trabajos article > a {
     color: #212A3E;
-    font-weight: 600;
+    font-weight: 400;
+    text-decoration: none;
+    }
+    section#trabajos article > a:hover {
+        color: #212A3E;
+        }
+
+section#trabajos div > a {
+    color: #212A3E;
+    font-weight: 400;
     text-decoration: none;
     }
     section#trabajos a:hover {
-        color: #a4835f;
+        color: #212A3E;
         }
 
 /* FOOTER */
@@ -1072,7 +1109,22 @@ footer section a {
             height: 2px;
             background-color: #212A3E;
             display: block;
+            transition: all .3s;
             }
+
+    header nav ul a.active.selected {
+        font-weight: 400;
+        pointer-events: all;
+        cursor: pointer;
+        }
+        header nav ul a.active.selected:hover {
+            font-weight: 400;
+            pointer-events: all;
+            color: #a4835f;
+            }
+            header nav ul a.active.selected:hover::after {
+                background-color: #a4835f;
+                }
     
     header nav ul li .btn {
         width: auto;
@@ -1082,7 +1134,7 @@ footer section a {
         padding: 8px 24px;
         }
         header nav ul li .btn:hover {
-            font-size: 16px;
+            font-size: 18px;
             background-color: #a4835f;
             color: white;
             }
@@ -1180,6 +1232,7 @@ footer section a {
     section.highlight .highlight-wrapper {
         justify-content: space-between;
         width: initial;
+        gap: 1rem;
       }
 
     section.highlight .highlight-wrapper > div {
