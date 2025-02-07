@@ -339,19 +339,14 @@ header nav {
     align-items: center;
     }
 
-header nav > a {
-    width: auto;
-    z-index: 7;
-    }
-
 header .logo {
-    width: 100%;
+    width: 120px;
     font-family: Radio Canada;
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
     display: flex;
-    align-items: center;   
+    align-items: center;
     }
 
 header .logo svg {
@@ -363,7 +358,11 @@ header .logo svg {
         fill: #a4835f;
         }
 
-header nav ul {
+header nav > ul {
+    display: none;
+    }
+
+header nav label ul {
     display: flex;
     width: 100vw;
     height: 100%;
@@ -377,11 +376,11 @@ header nav ul {
     left: 50%;
     transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.9);
-    transition: all .5s;
     opacity: 0;
     z-index: -1;
     backdrop-filter: blur(4px);
     pointer-events: none;
+    transition: all .5s;
     }
     .mobile-icon:checked ~ .submenu {
         top: 0;
@@ -390,7 +389,7 @@ header nav ul {
         pointer-events: all;
         }
 
-header nav ul li {
+header nav label ul li {
     width: 80%;
     padding: 2rem 0;
     text-align: center;
@@ -398,10 +397,10 @@ header nav ul li {
     transform: translate(0 , 65px);
     transition: all 1s;
     }
-    header nav ul li:first-child {
+    header nav label ul li:first-child {
         transform: translate(0 , 50px);
         }
-    header nav ul li:last-child {
+    header nav label ul li:last-child {
         border-bottom: none;
         transform: translate(0 , 75px);
         }
@@ -409,24 +408,38 @@ header nav ul li {
         transform: translate(0 , 0);
         }
 
-header nav ul a {
+header nav label ul a {
     color: #212A3E;
     text-decoration: none;
     }
+    input.mobile-icon:checked ~ .logo {
+        position: fixed;
+        }
 
-header nav ul a:hover {
+header nav label ul a:hover {
     color: #a4835f;
     transition: all .3s;
     }
 
-header nav ul a.active {
+header nav label ul a.active {
     color: #212A3E;
     pointer-events: none;
     font-weight: 600;
     cursor: default;
     }
 
-header nav ul .btn {
+header nav ul a.active.selected {
+    font-weight: 400;
+    pointer-events: all;
+    cursor: pointer;
+    }
+    header nav ul a.active.selected:hover {
+        font-weight: 400;
+        pointer-events: all;
+        color: #a4835f;
+        }
+
+header nav label ul .btn {
     width: 100%;
     padding: 0;
     color: #212A3E;
@@ -434,7 +447,7 @@ header nav ul .btn {
     background-color: transparent;
     font-size: 2rem;
     }
-    header nav ul .btn:hover {
+    header nav label ul .btn:hover {
         color: #a4835f;
         transition: all .3s;
         background-color: transparent;
@@ -443,10 +456,10 @@ header nav ul .btn {
 
 .mobile-menu-icon {
     display: flex;
-    width: 40px;
+    width: 100%;
     height: 40px;
     box-sizing: border-box;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     }
 
@@ -460,7 +473,6 @@ header nav ul .btn {
     }
 
 .mobile-menu-icon span {
-	margin: 0 auto;
 	position: relative;
     z-index: 4;
     }
@@ -474,6 +486,7 @@ header nav ul .btn {
 	height: 3px;
 	background-color: #000;
 	display: block;
+    margin-right: .5rem;
     }
     .mobile-menu-icon span:before {
         margin-top: -8px;
@@ -501,6 +514,7 @@ header nav ul .btn {
 input.mobile-icon:checked ~ .icon-mobile {
 	background-color: rgba(0,0,0,0.0);
 	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+    position: fixed;
     }
 .mobile-menu-icon .icon-mobile:before {
 	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
@@ -605,6 +619,20 @@ h1 {
 .sectionWrapper {
     max-width: 992px;
     margin: 0 auto;
+    }
+
+/* SECTION HOME */
+
+section#home .sectionWrapper h1 {
+    max-width: fit-content;
+    text-align: center;
+    margin: 10rem 1rem;
+    box-sizing: border-box;
+    }
+
+section#home > svg {
+    margin: 0 auto 8rem;
+    display: block;
     }
 
 /* SECTION ABOUT ME */
@@ -954,7 +982,13 @@ section#trabajos .sectionWrapper::before {
 
 section#trabajos .sectionWrapper article img {
     width: 100%;
+    transform: translate(0px, 20px);
+    z-index: -1;
+    transition: all .5s;
     }
+    section#trabajos .sectionWrapper article:hover img {
+        transform: translate(0px, 2px);
+        }
 
 section#trabajos article {
     display: flex;
@@ -994,11 +1028,15 @@ section#trabajos title {
     margin-bottom: 1rem;
     text-decoration: none;
     }
+    section#trabajos article:hover title {
+        color: #a4835f;
+        }
 
 section#trabajos p {
     height: 100%;
     text-decoration: none;
     font-weight: 400;
+    transition: all .3s;
     }
 
 section#trabajos article > a {
@@ -1120,19 +1158,40 @@ footer section a {
         }
 
     header .logo {
+        width: 100%;
+        font-family: Radio Canada;
         font-size: 32px;
+        font-weight: 500;
+        line-height: 60px;
+        display: flex;
+        align-items: center;
+        position: static;
         }
-
+    
     header .logo svg {
-        fill: #394867;
+        fill: #212A3E;
+        transform: scale(0.75);
+        transition: all .3s;
         }
+        header .logo:hover svg {
+            fill: #a4835f;
+            }
 
     .mobile-menu-icon { 
-        width: auto;
-        height: auto;
+        display: none;
         }
 
-    header nav ul {
+    header nav label ul {
+        display: none; 
+        }
+
+    header nav > a {
+        width: auto;
+        display: inline;
+        }
+
+    header nav > ul {
+        display: flex;
         width: auto;
         font-size: 1.2rem;
         padding-top: 4px;
@@ -1148,7 +1207,7 @@ footer section a {
         z-index: 5;
         }
 
-    header nav ul li {
+    header nav > ul li {
         width: initial;
         padding: initial;
         border-bottom: none;
@@ -1156,27 +1215,27 @@ footer section a {
         transform: none;
         pointer-events: all;
         }
-        header nav ul li:first-child ,
-        header nav ul li:last-child {
+        header nav > ul li:first-child ,
+        header nav > ul li:last-child {
             transform: none;
             }
 
-    header nav ul a {
+    header nav > ul a {
         color: #212A3E;
         text-decoration: none;
         }
     
-    header nav ul a:hover {
+    header nav > ul a:hover {
         color: #a4835f;
         transition: all .3s;
         }
     
-    header nav ul a.active {
+    header nav > ul a.active {
         color: #212A3E;
         pointer-events: none;
         font-weight: 600;
         }
-        header nav ul a.active::after {
+        header nav > ul a.active::after {
             content: '';
             width: 100%;
             height: 2px;
@@ -1185,21 +1244,21 @@ footer section a {
             transition: all .3s;
             }
 
-    header nav ul a.active.selected {
+    header nav > ul a.active.selected {
         font-weight: 400;
         pointer-events: all;
         cursor: pointer;
         }
-        header nav ul a.active.selected:hover {
+        header nav > ul a.active.selected:hover {
             font-weight: 400;
             pointer-events: all;
             color: #a4835f;
             }
-            header nav ul a.active.selected:hover::after {
+            header nav > ul a.active.selected:hover::after {
                 background-color: #a4835f;
                 }
     
-    header nav ul li .btn {
+    header nav > ul li .btn {
         width: auto;
         min-width: auto;
         font-size: 18px;
@@ -1207,16 +1266,11 @@ footer section a {
         color: white;
         padding: 8px 24px;
         }
-        header nav ul li .btn:hover {
+        header nav > ul li .btn:hover {
             font-size: 18px;
             background-color: #a4835f;
             color: white;
             }
-
-    .mobile-menu-icon .mobile-icon,
-    .mobile-menu-icon .icon-mobile {
-        display: none;
-        }
 
     h1 {
         font-size: 48px;
