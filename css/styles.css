@@ -308,7 +308,7 @@ b {
 
 body {
     font-family: Rubik;
-    color: #212A3E;
+    color: #dbe6ff;
     font-size: 20px;
     font-weight: 400;
     line-height: 32px;
@@ -318,8 +318,21 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    background-size: cover;
     /*background-color: #f4f8fb;*/
     }
+
+body::before {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100%;
+    background-image: url(../img/bg-body.svg);
+    background-size: cover;
+    z-index: -30;
+    position: fixed;
+    top: 0;
+}
 
 /* HEADER */
 
@@ -350,19 +363,19 @@ header .logo {
     }
 
 header .logo svg {
-    fill: #212A3E;
+    fill: #dbe6ff;
     transform: scale(0.75);
     transition: all .3s;
     }
     header .logo:hover svg {
-        fill: #a4835f;
+        fill: white;
         }
 
 header nav > ul {
     display: none;
     }
 
-header nav label ul {
+/*header nav label ul {
     display: flex;
     width: 100vw;
     height: 100%;
@@ -384,6 +397,33 @@ header nav label ul {
     }
     .mobile-icon:checked ~ .submenu {
         top: 0;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        }*/
+
+header nav label ul {
+    display: flex;
+    width: 105vw;
+    height: 200vw;
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: -20px;
+    left: -37vw;
+    transform: translate(-50%, 0);
+    background-color: rgba(6, 5, 79, .8);
+    opacity: 0;
+    z-index: -1;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    transition: all .5s;
+    }
+    .mobile-icon:checked ~ .submenu {
+        top: -30px;
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -411,7 +451,7 @@ header nav label ul a {
     width: 100%;
     display: inline-block;
     padding: 3rem 0;
-    color: #212A3E;
+    color: #dbe6ff;
     text-decoration: none;
     }
     input.mobile-icon:checked ~ .logo {
@@ -419,26 +459,26 @@ header nav label ul a {
         }
 
 header nav label ul a:hover {
-    color: #a4835f;
+    color: #fff;
     transition: all .3s;
     }
 
 header nav label ul a.active {
-    color: #212A3E;
+    color: #dbe6ff;
     pointer-events: none;
     font-weight: 600;
     cursor: default;
     }
 
 header nav ul a.active.selected {
-    font-weight: 400;
+    font-weight: 600;
     pointer-events: all;
     cursor: pointer;
     }
     header nav ul a.active.selected:hover {
-        font-weight: 400;
+        font-weight: 600;
         pointer-events: all;
-        color: #a4835f;
+        color: #fff;
         }
 
 header nav label ul .btn {
@@ -491,7 +531,7 @@ header nav label ul .btn {
 .mobile-menu-icon span, .mobile-menu-icon span:before, .mobile-menu-icon span:after {
 	width: 28px;
 	height: 3px;
-	background-color: #000;
+	background-color: #dbe6ff;
 	display: block;
     margin-right: .65rem;
     }
@@ -550,8 +590,9 @@ input.mobile-icon:checked ~ .icon-mobile:after {
 /* BUTTONS */
 
 .btn {
-    background-color: #212A3E;
-    color: white;
+    background-color: transparent;
+    color: #dbe6ff;
+    border: 1px solid rgba(219, 230, 255, .75) !important;
     font-family: Rubik;
     font-size: 16px;
     border-radius: 100px;
@@ -569,7 +610,8 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     position: relative;
     }
     .btn:hover {
-        background-color: #a4835f;
+        background-color: white;
+        color: #090979;
         }
 
 .btn svg {
@@ -579,22 +621,22 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     margin: 0 !important;
     margin-left: .25rem !important;
     opacity: 0;
-    fill: #ffffff !important;
+    fill: #090979 !important;
     transition: all .3s;
     }
     .btn:hover svg {
         }
 
 .btn.comming {
-    background-color: white;
-    color: #212A3E;
-    border: 1px dashed #212A3E;
+    background-color: transparent;
+    color: #dbe6ff;
+    border: 1px dashed #dbe6ff !important;
     pointer-events: none;
     }
     .btn.comming:hover {
-        background-color: white;
-        color: #212A3E;
-        border: 1px dotted #212A3E;
+        background-color: transparent;
+        color: #dbe6ff;
+        border: 1px dotted #dbe6ff;
         }
 
 header .btn {
@@ -628,10 +670,15 @@ h2::before {
     display: block;
     border-radius: 6px;
     margin: auto 0;
-    background-color: #e5dcd5;
+    padding: 4px;
+    background-color: rgba(219, 230, 255, .5);
     position: absolute;
     z-index: -1;
-    transform: translateY(0%) rotate3d(1, 1, 1, -2deg);
+    transform: translate(-50%, -50%) rotate3d(1, 1, 1, -1deg);
+    left: 50%;
+    top: 50%;
+    backdrop-filter: blur(100px) brightness(21.5);
+    opacity: .85;
     }
 
 .italic {
@@ -656,9 +703,11 @@ section#home .sectionWrapper h1 {
     box-sizing: border-box;
     }
 
-section#home > svg {
+section#home > svg ,
+    section#home > svg path {
     margin: 0 auto 8rem;
     display: block;
+    fill: #dbe6ff;
     }
 
 /* SECTION ABOUT ME */
@@ -683,6 +732,9 @@ section#sobre-mi div div img {
     max-width: fit-content;
     margin: 24px auto;
     border-radius: 400px;
+    border: 1px solid rgba(255, 255, 255, .6);
+    backdrop-filter: blur(261px);
+    background-color: rgba(255, 255, 255, .1);
     }
 
 section#sobre-mi > div > div > div > img{
@@ -722,7 +774,6 @@ section#intro .sectionWrapper {
 
 section#intro title {
     display: block;
-    color: #212A3E;
     font-family: 'Rubik';
     font-weight: 600;
     font-size: 20px;
@@ -747,6 +798,7 @@ section#intro #intro-details .tools {
 section#intro #intro-details img {
     height: 65px;
     width: 65px;
+    filter: saturate(0) brightness(10);
     }
 
 section#intro #intro-description {
@@ -761,9 +813,8 @@ section#intro #intro-description ul {
 /* HIGHLIGHT SECTION */
 
 section.highlight {
-    background-color: #e9f0f4;
-    box-shadow: 30vw 0 0 0 #e9f0f4,
-               -30vw 0 0 0 #e9f0f4;
+    backdrop-filter: blur(600px);
+    background-color: #06054F;
     padding: 4rem 16px;
     }
 
@@ -772,9 +823,15 @@ section.highlight h2 {
     text-align: center;
     line-height: 2.5rem;
     }
-    section.highlight h2 svg {
-        fill: #394867;
+    section.highlight h2::before {
+        display: none;
         }
+    
+section.highlight h2 svg {
+    fill: #394867;
+    }
+
+
 
 section.highlight .highlight-wrapper > div {
     min-width: 280px;
@@ -782,7 +839,6 @@ section.highlight .highlight-wrapper > div {
 
 section.highlight .highlight-wrapper title {
     display: block;
-    color: #212A3E;
     font-family: 'Rubik';
     font-weight: 600;
     font-size: 1.25rem;
@@ -792,11 +848,12 @@ section.highlight .highlight-wrapper title::before {
     display: inline-block;
     box-sizing: border-box;
     content: "";
-    width: 10px;
-    height: 10px;
-    margin-right: .35rem;
+    width: 8px;
+    height: 8px;
+    margin-right: .5rem;
     border-radius: 1rem;
-    background-color: #a4835f !important;
+    background-color: #0475C0 !important;
+    margin-bottom: 2px;
     }
     section.highlight .highlight-wrapper .discovery title::before {
       background-color: #2349ff;
@@ -831,7 +888,7 @@ section.highlight .highlight-wrapper {
 
 section.content {
     padding: 5rem 16px;
-    border-top: 6px solid #394867 !important;
+    border-top: 2px solid rgba(219, 230, 255, .5) !important;
     }
     section.content.discovery {
         border-top: solid 6px #2349ff;
@@ -849,9 +906,8 @@ section.content {
 section.content .tag {
     padding: .5rem 1rem;
     border-radius: .5rem;
-    background-color: rgba(35, 73, 255, 0.1);
-    color: #394867 !important;
-    background-color: rgba(57, 72, 103, 0.1) !important;;
+    color: #090979 !important;
+    background-color: rgba(219, 230, 255, .75) !important;
     }
     section.content.discovery .tag {
         background-color: rgba(35, 73, 255, 0.1);
@@ -886,7 +942,7 @@ section.content h2::before {
 
 section.content h2 svg {
     margin-top: 4px;
-    fill:#a4835f !important;
+    fill: #0475C0 !important;
     }
     section.content.discovery h2 svg {
         fill: #2349ff;
@@ -934,7 +990,12 @@ section.content video {
     border-radius: 20px;
     margin: 1.5rem 0 3rem;
     width: 100%;
-    border: 2px solid rgba(57, 72, 10, 0.2) !important;
+    border: 1px solid #dbe6ff !important;
+    padding: 16px;
+    box-sizing: border-box;
+    backdrop-filter: blur(241px);
+    background-color: rgba(255, 255, 255, .1);
+    position: relative;
     }
     section.content.discovery img {
         border: 2px solid rgba(35, 73, 255, 0.2);
@@ -948,6 +1009,15 @@ section.content video {
     section.content.implementation img {
         border: 2px solid rgba(0, 207, 38, 0.2);
         }
+        section.content img::after ,
+        section.content video::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #dbe6ff !important;
+            }
 
 section.content .imgWrapper {
     display: flex;
@@ -975,7 +1045,7 @@ section.content .note {
     height: auto;
     padding: 3rem 2rem 2rem;
     margin: 5rem auto;
-    background-color: rgba(255,255,255, .5);
+    background-color: rgba(255,255,255, .15);
     backdrop-filter: blur(5px);
     border-radius: 1.5rem;
     }
@@ -1055,6 +1125,7 @@ section#trabajos h2 {
     font-weight: 600;
     text-align: center;
     margin-bottom: 2rem;
+    color: #090979;
     }
 
 section#trabajos .sectionWrapper::before {
@@ -1063,12 +1134,13 @@ section#trabajos .sectionWrapper::before {
     width: 100%;
     max-width: 100%;
     height: 80%;
-    background-color: rgb(155 164 181 / 25%);
+    background-color: rgb(6 5 79 / 10%);
     position: absolute;
     z-index: -1;
     border-radius: 2rem;
     bottom: -18px;
     left: 0;
+    filter: blur(10px);
     }
 
 section#trabajos .sectionWrapper article img ,
@@ -1089,11 +1161,16 @@ section#trabajos article {
 
 section#trabajos article div {
     height: 100%;
-    background-color: white;
+    background: linear-gradient(333deg, rgba(2, 0, 36, 0.04667804621848737) 0%, rgba(0, 119, 255, 0.10270045518207283) 35%, rgba(255, 255, 255, 0.04947916666666663) 100%);
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
     flex-direction: row;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     }
 
 section#trabajos span.tag {
@@ -1101,7 +1178,7 @@ section#trabajos span.tag {
     text-transform: uppercase;
     font-weight: 600;
     background-color: rgba(164, 131, 95, 0.1    );
-    color: #a4835f;
+    color: #e8e8e8;
     padding: .1rem .75rem;
     font-size: .75rem;
     letter-spacing: 1px;
@@ -1121,7 +1198,7 @@ section#trabajos title {
     text-decoration: none;
     }
     section#trabajos article:hover title {
-        color: #a4835f;
+        color: white;
         }
 
 section#trabajos p {
@@ -1141,23 +1218,25 @@ section#trabajos article > a {
         }
 
 section#trabajos div > a {
-    color: #212A3E;
     font-weight: 400;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     }
-    section#trabajos a:hover {
-        color: #212A3E;
+    section#trabajos a:hover ,
+        section#trabajos a:visited {
+        color: #dbe6ff;
         }
 
 /* FOOTER */
 
 footer {
     padding: 2rem 1rem;
-    background-color: #212A3E;
-    color: white;
+    color: #dbe6ff;
     font-weight: 300;
+    backdrop-filter: blur(670px);
+    opacity: .85;
+    background-color: rgba(219, 230, 255, .05);
     }
 
 footer .footerWrapper {
@@ -1235,7 +1314,7 @@ footer section a {
         margin: 0 !important;
         margin-left: .25rem !important;
         opacity: 0;
-        fill: #ffffff !important;
+        fill: #090979 !important;
         transition: all .3s;
         }
         .btn:hover svg {
@@ -1261,12 +1340,13 @@ footer section a {
         }
     
     header .logo svg {
-        fill: #212A3E;
+        fill: #dbe6ff;
         transform: scale(0.75);
         transition: all .3s;
         }
         header .logo:hover svg {
-            fill: #a4835f;
+            fill: white;
+            transform: scale(0.8);
             }
 
     .mobile-menu-icon { 
@@ -1306,6 +1386,7 @@ footer section a {
         text-align: initial;
         transform: none;
         pointer-events: all;
+        position: relative;
         }
         header nav > ul li:first-child ,
         header nav > ul li:last-child {
@@ -1313,26 +1394,45 @@ footer section a {
             }
 
     header nav > ul a {
-        color: #212A3E;
+        color: #dbe6ff;
         text-decoration: none;
+        position: relative;
         }
-    
-    header nav > ul a:hover {
-        color: #a4835f;
-        transition: all .3s;
-        }
+        header nav > ul a:hover {
+            color: white;
+            transition: all .3s;
+            }
+        
+        header nav > ul li:not(:last-child) a::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 0%;
+            margin: 0 auto;
+            background-color: rgba(219, 230, 250, .1);
+            transition: all .3s;
+            transform: translate(50%, -2px);
+            }
+            header nav > ul li:hover a::after {
+                color: white;
+                width: 100%;
+                background-color: rgba(219, 230, 250, .75);
+                transform: translate(0, -2px);
+                }
     
     header nav > ul a.active {
-        color: #212A3E;
+        color: #06054F;
         pointer-events: none;
         font-weight: 600;
         }
-        header nav > ul a.active::after {
+        header nav > ul li a.active::after {
             content: '';
             width: 100%;
             height: 2px;
-            background-color: #212A3E;
+            background-color: #06054F;
             display: block;
+            transform: translate(0, 0);
             transition: all .3s;
             }
 
@@ -1344,24 +1444,21 @@ footer section a {
         header nav > ul a.active.selected:hover {
             font-weight: 400;
             pointer-events: all;
-            color: #a4835f;
             }
-            header nav > ul a.active.selected:hover::after {
-                background-color: #a4835f;
-                }
     
     header nav > ul li .btn {
         width: auto;
         min-width: auto;
         font-size: 18px;
-        background-color: #212A3E;
-        color: white;
+        background-color: transparent;
+        color: #dbe6ff;
         padding: 8px 24px;
+        border: 1px solid #dbe6ff;
         }
         header nav > ul li .btn:hover {
             font-size: 18px;
-            background-color: #a4835f;
-            color: white;
+            background-color: white;
+            color: #0475C0;
             }
 
     h1 {
@@ -1378,7 +1475,6 @@ footer section a {
 
     main {
         min-height: calc(100vh - 297px);
-        padding-bottom: 4rem;
         }
 
     section#sobre-mi {
