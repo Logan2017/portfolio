@@ -319,7 +319,7 @@ body {
     justify-content: center;
     margin: 0 auto;
     background-size: cover;
-    /*background-color: #f4f8fb;*/
+    background-color: #06054F;
     }
 
 body::before {
@@ -505,7 +505,7 @@ header nav label ul .btn {
     align-items: center;
     position: fixed;
     right: 1.75rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(100px) brightness(1.05);
     z-index: 999;
     border-radius: .5rem;
     }
@@ -759,7 +759,14 @@ section#hero h1 {
     }
 
 section#hero img {
-    width: 105vw;
+    width: calc(100% - 32px) !important;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .75);
+    border-radius: 16px;
+    display: block;
     }
 
 /* INTRO */
@@ -1084,6 +1091,8 @@ section.content .note .noteImg {
 section.content .note .noteImg img {
     border: none !important;
     margin: 0 auto;
+    padding: 0;
+    filter: hue-rotate(347deg);
     }
 
 section.content .note ul {
@@ -1539,10 +1548,6 @@ footer section a {
         max-height: 480px;
         overflow: hidden;
         align-self: center;
-        }
-
-    section#hero img {
-        width: 100%;
         }
 
     /* INTRO */
