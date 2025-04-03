@@ -404,18 +404,17 @@ header nav > ul {
 
 header nav label ul {
     display: flex;
-    width: 105vw;
-    height: 200vw;
+    width: 100vw;
+    height: 100vh;
     font-size: 2rem;
     flex-direction: column;
     gap: 0;
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: -20px;
-    left: -37vw;
-    transform: translate(-50%, 0);
-    background-color: rgba(6, 5, 79, .8);
+    top: 0;
+    right: -10px;
+    background-color: rgba(6, 5, 79, .9);
     opacity: 0;
     z-index: -1;
     backdrop-filter: blur(4px);
@@ -423,7 +422,8 @@ header nav label ul {
     transition: all .5s;
     }
     .mobile-icon:checked ~ .submenu {
-        top: -30px;
+        top: -10px;
+        right: -10px;
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -498,13 +498,14 @@ header nav label ul .btn {
 
 .mobile-menu-icon {
     display: flex;
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     box-sizing: border-box;
     justify-content: flex-end;
     align-items: center;
     position: fixed;
-    right: 1.75rem;
+    top: 10px;
+    right: 10px;
     backdrop-filter: blur(100px) brightness(1.05);
     z-index: 999;
     border-radius: .5rem;
@@ -548,13 +549,16 @@ header nav label ul .btn {
 .mobile-icon {
     opacity: 0;
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    right: 0;
     z-index: 5;
     cursor: pointer;
     }
 
 .mobile-menu-icon .icon-mobile {
+    transform: translate(-5px, 0);
 	-webkit-transition-duration: 0s; transition-duration: 0s;
 	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
     }
