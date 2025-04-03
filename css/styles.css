@@ -506,10 +506,10 @@ header nav label ul .btn {
     position: fixed;
     top: 10px;
     right: 10px;
-    backdrop-filter: blur(30px) brightness(0.95);
+    backdrop-filter: blur(10px) brightness(1);
     z-index: 999;
     border-radius: .5rem;
-    background-color: rgba(4, 117, 192, .75);
+    background-color: rgba(4, 117, 192, .5);
     }
 
 .mobile-menu-icon label {
@@ -728,12 +728,16 @@ section#sobre-mi div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 24px 8px;
+    padding: 24px 16px;
+    }
+
+section#sobre-mi div div {
+    padding: 16px 0;
     }
 
 section#sobre-mi div div img {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     max-width: fit-content;
     margin: 24px auto;
     border-radius: 400px;
@@ -842,8 +846,6 @@ section.highlight h2 {
 section.highlight h2 svg {
     fill: #394867;
     }
-
-
 
 section.highlight .highlight-wrapper > div {
     min-width: 280px;
@@ -1522,6 +1524,10 @@ footer section a {
         flex-direction: row;
         flex-wrap: wrap;
         padding: 24px 0;
+        }
+
+    section#sobre-mi div div img {
+        width: 100%;
         }
 
     /*section#sobre-mi > div > div > img {
