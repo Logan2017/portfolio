@@ -506,9 +506,10 @@ header nav label ul .btn {
     position: fixed;
     top: 10px;
     right: 10px;
-    backdrop-filter: blur(100px) brightness(1.05);
+    backdrop-filter: blur(30px) brightness(0.95);
     z-index: 999;
     border-radius: .5rem;
+    background-color: rgba(4, 117, 192, .75);
     }
 
 .mobile-menu-icon label {
