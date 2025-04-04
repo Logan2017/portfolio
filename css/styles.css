@@ -705,7 +705,7 @@ h2::before {
 section#home .sectionWrapper h1 {
     max-width: fit-content;
     text-align: center;
-    margin: 10rem 1rem;
+    margin: 10rem auto;
     box-sizing: border-box;
     }
 
