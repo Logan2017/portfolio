@@ -327,7 +327,7 @@ body::before {
     display: block;
     width: 100vw;
     height: 100%;
-    background-image: url(../img/bg-body.svg);
+    background-image: url(../img/bg-body.jpg);
     background-size: cover;
     z-index: -30;
     position: fixed;
@@ -414,7 +414,7 @@ header nav label ul {
     position: fixed;
     top: 0;
     right: -10px;
-    background-color: rgba(6, 5, 79, .9);
+    background-color: rgba(6, 5, 79, .95);
     opacity: 0;
     z-index: -1;
     backdrop-filter: blur(4px);
@@ -432,7 +432,7 @@ header nav label ul {
 header nav label ul li {
     width: 80%;
     text-align: center;
-    border-bottom: 1px solid rgba(33, 42, 62, 0.25);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
     transform: translate(0 , 65px);
     transition: all 1s;
     }
@@ -599,7 +599,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     color: #dbe6ff;
     border: 1px solid rgba(219, 230, 255, .75) !important;
     font-family: Rubik;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 100px;
     flex-flow: row;
     flex-shrink: 0;
@@ -613,6 +613,8 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     border: none;
     transition: all .3s;
     position: relative;
+    font-weight: 600;
+    box-shadow: 0 3px 15px rgba(255, 255, 255, .25);
     }
     .btn:hover {
         background-color: white;
@@ -637,6 +639,9 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     color: #dbe6ff;
     border: 1px dashed #dbe6ff !important;
     pointer-events: none;
+    box-shadow: none;
+    border-spacing: 5px;
+    font-weight: 400;
     }
     .btn.comming:hover {
         background-color: transparent;
@@ -652,9 +657,8 @@ header .btn {
 /* GENERAL */
 
 h1 {
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     margin-bottom: 2rem;
     font-family: Yeseva One;
     font-size: 32px;
@@ -674,16 +678,16 @@ h2::before {
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: auto 0;
     padding: 4px;
-    background-color: rgba(219, 230, 255, .5);
+    background-color: rgba(219, 230, 255, .1);
     position: absolute;
     z-index: -1;
     transform: translate(-50%, -50%) rotate3d(1, 1, 1, -1deg);
     left: 50%;
     top: 50%;
-    backdrop-filter: blur(100px) brightness(21.5);
+    backdrop-filter: blur(70px) brightness(1.5);
     opacity: .85;
     }
 
@@ -705,7 +709,7 @@ h2::before {
 section#home .sectionWrapper h1 {
     max-width: fit-content;
     text-align: center;
-    margin: 10rem auto;
+    margin: 10rem 1rem;
     box-sizing: border-box;
     }
 
@@ -713,7 +717,7 @@ section#home > svg ,
     section#home > svg path {
     margin: 0 auto 8rem;
     display: block;
-    fill: #dbe6ff;
+    fill: rgb(219, 230, 255, .75);
     }
 
 /* SECTION ABOUT ME */
@@ -738,14 +742,15 @@ section#sobre-mi div div {
 
 section#sobre-mi div div img ,
     section#sobre-mi div div video {
-    display: inline-block;
+    display: block;
     width: 80%;
-    max-width: fit-content;
+    max-width: 350px;
     margin: 24px auto;
     border-radius: 400px;
     border: 1px solid rgba(255, 255, 255, .6);
     backdrop-filter: blur(261px);
     background-color: rgba(255, 255, 255, .1);
+    clip-path: circle(50% at 50% 50%);
     }
 
 section#sobre-mi > div > div > div > img{
@@ -786,7 +791,7 @@ section#intro .sectionWrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 2rem 16px;
+    padding: 4rem 16px;
     gap: 2rem;
     }
 
@@ -795,6 +800,7 @@ section#intro title {
     font-family: 'Rubik';
     font-weight: 600;
     font-size: 20px;
+    margin: 8px 0;
     }
 
 section#intro #intro-details {
@@ -816,7 +822,10 @@ section#intro #intro-details .tools {
 section#intro #intro-details img {
     height: 65px;
     width: 65px;
-    filter: saturate(0) brightness(10);
+    filter: brightness(1.5);
+    backdrop-filter: blur(1px);
+    background-color: rgba(219, 230, 255, .1);
+    border-radius: 8px;
     }
 
 section#intro #intro-description {
@@ -922,8 +931,9 @@ section.content {
 section.content .tag {
     padding: .5rem 1rem;
     border-radius: .5rem;
-    color: #090979 !important;
-    background-color: rgba(219, 230, 255, .75) !important;
+    color: #DBE6FE !important;
+    backdrop-filter: blur(10px) brightness(1);
+    background-color: rgba(4, 117, 192, .5) !important;
     }
     section.content.discovery .tag {
         background-color: rgba(35, 73, 255, 0.1);
@@ -1055,8 +1065,8 @@ section.content .notesWrapper {
     }
 
 section.content .note {
-    width: fit-content;
-    max-width: 100%;
+    width: 100%;
+    max-width: 460px;
     box-sizing: border-box;
     height: auto;
     padding: 3rem 2rem 2rem;
@@ -1143,7 +1153,7 @@ section#trabajos h2 {
     font-weight: 600;
     text-align: center;
     margin-bottom: 2rem;
-    color: #090979;
+    color: #dbe6ff;
     }
 
 section#trabajos .sectionWrapper::before {
@@ -1179,7 +1189,7 @@ section#trabajos article {
 
 section#trabajos article div {
     height: 100%;
-    background: linear-gradient(333deg, rgba(2, 0, 36, 0.04667804621848737) 0%, rgba(0, 119, 255, 0.10270045518207283) 35%, rgba(255, 255, 255, 0.04947916666666663) 100%);
+    background: linear-gradient(333deg, rgba(2, 0, 36, 0.7) 0%, rgba(0, 119, 255, 0.1) 65%, rgba(255, 255, 255, 0.1) 68%, rgba(255, 255, 255, 0) 100%);
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
@@ -1189,13 +1199,14 @@ section#trabajos article div {
     border-right: 1px solid rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 13px 30px rgb(6, 5, 79, .75), inset 0 1px 8px rgb(6, 5, 79, .3); 
     }
 
 section#trabajos span.tag {
     width: fit-content;
     text-transform: uppercase;
     font-weight: 600;
-    background-color: rgba(164, 131, 95, 0.1    );
+    background-color: rgba(232, 232, 232, .2);
     color: #e8e8e8;
     padding: .1rem .75rem;
     font-size: .75rem;
@@ -1204,6 +1215,7 @@ section#trabajos span.tag {
     margin-bottom: 1rem;
     display: inline-block;
     box-sizing: border-box;
+    backdrop-filter: blur(20px) brightness(0.5);
     }
 
 section#trabajos title {
@@ -1486,7 +1498,8 @@ footer section a {
         line-height: 56px;
         text-align: left;
         margin-bottom: 2rem;
-        max-width: 560px;
+        width: 55vw;
+        max-width: 580px;
         }
 
     h2 {
