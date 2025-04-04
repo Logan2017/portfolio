@@ -652,8 +652,9 @@ header .btn {
 /* GENERAL */
 
 h1 {
-    width: 100%;
-    margin: 0;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
     margin-bottom: 2rem;
     font-family: Yeseva One;
     font-size: 32px;
@@ -735,7 +736,8 @@ section#sobre-mi div div {
     padding: 16px 0;
     }
 
-section#sobre-mi div div img {
+section#sobre-mi div div img ,
+    section#sobre-mi div div video {
     display: inline-block;
     width: 80%;
     max-width: fit-content;
@@ -1484,7 +1486,7 @@ footer section a {
         line-height: 56px;
         text-align: left;
         margin-bottom: 2rem;
-        max-width: 50vw;
+        max-width: 560px;
         }
 
     h2 {
