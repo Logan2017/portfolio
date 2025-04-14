@@ -645,7 +645,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
         color: rgba(var(--color-primary-700), 1);
         }
 
-.btn svg {
+button.btn svg {
     width: 0;
     display: block;
     overflow: hidden;
@@ -787,12 +787,24 @@ section#sobre-mi > div > div > div > img{
 
 section#sobre-mi .goPortfolio {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--size-m);
     }
 
 section#sobre-mi .goPortfolio a {
-    margin: 0 auto;
     text-decoration: none;
     }
+
+section#sobre-mi .goPortfolio a.btn svg {
+    fill: rgb(var(--color-primary-300));
+    width: 10px;
+    transform: scale(2);
+    }
+    section#sobre-mi .goPortfolio a.btn:hover svg {
+        fill: rgb(var(--color-primary-700));
+        }
+
 
 /* HERO */
 
@@ -1318,7 +1330,7 @@ footer section a {
         width: fit-content;
         }
 
-    .btn svg {
+    button.btn svg {
         width: 0;
         display: block;
         overflow: hidden;
@@ -1328,7 +1340,7 @@ footer section a {
         fill: rgba(var(--color-primary-700), 1) !important;
         transition: all .3s;
         }
-        .btn:hover svg {
+        button.btn:hover svg {
             width: var(--size-l);
             width: var(--size-l);
             opacity: 1;
