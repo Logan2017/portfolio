@@ -271,6 +271,10 @@ time, mark, audio, video {
 
 /* HTML5 display-role reset for older browsers */
 
+* {
+    scroll-behavior: smooth;
+    }   
+
 html {
     font-size: 16px;
     } 
@@ -682,6 +686,31 @@ a.a-btn {
     text-decoration: none;
     }
 
+a.up {
+    position: sticky;
+    left: 10px;
+    bottom: -100px;
+    background-color: rgba(4, 117, 192, .25);
+    backdrop-filter: blur(10px) brightness(1);
+    width: var(--size-4xl);
+    height: var(--size-4xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--size-10xl);
+    box-shadow: 0 var(--size-s) var(--size-s) rgba(0, 0, 0, .1);
+    opacity: 0;
+
+    transition: 1s all;
+    }
+    a.up.visible {
+        opacity: 1;
+        bottom: 10px;
+        }
+    a.up svg path {
+        fill: rgba(var(--color-white), .75);
+        }
+
 /* GENERAL */
 
 h1 {
@@ -889,8 +918,8 @@ section#intro #intro-description ul {
 /* HIGHLIGHT SECTION */
 
 section.highlight {
-    backdrop-filter: blur(600px);
-    background-color: rgba(var(--color-primary-700), 1);
+    backdrop-filter: blur(var(--size-5xl));
+    background-color: rgba(var(--color-primary-700), .5);
     padding: var(--size-4xl) var(--size-m);
     }
 
@@ -978,7 +1007,7 @@ section.content h2::before {
 
 section.content h2 svg {
     margin-top: var(--size-xs);
-    fill: rgba(var(--color-primary-600), 1) !important;
+    fill: rgba(var(--color-primary-500), 1) !important;
     }
 
 section.content h2 span {
