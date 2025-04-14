@@ -8,5 +8,5 @@ window.addEventListener('scroll', () => {
     } else {
       el.classList.remove('visible');
     }
-  });
+  }); 
 });

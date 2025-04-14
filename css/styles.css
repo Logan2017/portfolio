@@ -1013,7 +1013,7 @@ section.content h2 svg {
 section.content h2 span {
     width: calc(100% - 36px);
     text-align: left;
-    padding-left: var(--size-xs);
+    padding-left: var(--size-xs); 
     }
 
 section.content ol {
