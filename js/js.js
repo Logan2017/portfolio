@@ -1,4 +1,4 @@
-const elementos = document.querySelectorAll('a.up');
+const elementos = document.querySelectorAll('.upWrapper');
 const puntoAparicion = 2400;
 
 window.addEventListener('scroll', () => {

@@ -444,7 +444,7 @@ header nav label ul {
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 0;
+    top: -10px;
     right: -10px;
     background-color: rgba(var(--color-primary-800), .95);
     opacity: 0;
@@ -492,6 +492,22 @@ header nav label ul a {
         position: fixed;
         }
 
+
+
+header nav label ul > a {
+    position: absolute;
+    top: -48px;
+    left: 8px;
+    opacity: 0;
+    transform: scale(1) translateX(0);
+
+    transition: 2s all;
+    }
+    .mobile-icon:checked ~ ul > a {
+        transform: scale(1.1) translateX(23px);
+        opacity: 1;
+        }
+
 header nav label ul a:hover {
     color: rgba(var(--color-white), 1);
     transition: all .3s;
@@ -506,13 +522,27 @@ header nav label ul a.active {
 
 header nav ul a.active.selected {
     font-weight: 600;
-    pointer-events: all;
+    pointer-events: none;
     cursor: pointer;
     }
     header nav ul a.active.selected:hover {
         font-weight: 600;
-        pointer-events: all;
+        pointer-events: none;
         color: rgba(var(--color-white),1);
+        }
+
+header nav ul li:nth-of-type(2) a.active.selected {
+    pointer-events: all;
+    }
+    header nav ul li:nth-of-type(2) a.active.selected:hover {
+        pointer-events: all;
+        }
+
+    input.mobile-icon:checked ~ header nav ul a ,
+    input.mobile-icon:checked ~ header nav ul a.active ,
+    input.mobile-icon:checked ~ header nav label ul a.active
+    input.mobile-icon:checked ~ header nav ul a.active.selected {
+        pointer-events: all !important;
         }
 
 header nav label ul .btn {
@@ -534,7 +564,7 @@ header nav label ul .btn {
     position: fixed;
     top: 10px;
     right: 10px;
-    backdrop-filter: blur(10px) brightness(1);
+    backdrop-filter: blur(6px) brightness(1);
     z-index: 999;
     border-radius: var(--size-s);
     background-color: rgba(4, 117, 192, .5);
@@ -686,12 +716,27 @@ a.a-btn {
     text-decoration: none;
     }
 
+section.upWrapper  {
+    height: 0;
+    padding: 0 !important;
+    bottom: -80px;
+    position: sticky;
+    opacity: 0;
+    z-index: 1;
+    transition: 1s all;
+    }
+    section.upWrapper.visible {
+        opacity: 1;
+        bottom: 10px;
+        transition: 1s all;
+        }
+
 a.up {
     position: sticky;
     margin: 0 auto;
     bottom: -100px;
     background-color: rgba(4, 117, 192, .25);
-    backdrop-filter: blur(10px) brightness(1);
+    backdrop-filter: blur(6px) brightness(1);
     width: var(--size-4xl);
     height: var(--size-4xl);
     display: flex;
@@ -699,16 +744,11 @@ a.up {
     align-items: center;
     border-radius: var(--size-10xl);
     box-shadow: 0 var(--size-s) var(--size-s) rgba(0, 0, 0, .1);
-    opacity: 0;
-
+    transform: translate(0, -75px);
     transition: 1s all;
     }
     a.up:hover {
         background-color: rgba(4, 117, 192, .75);
-        }
-    a.up.visible {
-        opacity: 1;
-        bottom: 10px;
         }
     a.up svg path {
         fill: rgba(var(--color-white), .75);
@@ -994,7 +1034,7 @@ section.content .tag {
     border-radius: var(--size-s);
     color: rgba(var(--color-primary-300), 1) !important;
     backdrop-filter: blur(10px) brightness(1);
-    background-color: rgba(var(--color-primary-600, .5)) !important;
+    background-color: rgba(36,91,216, .5) !important;
     }
 
 section.content h2 {
