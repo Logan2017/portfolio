@@ -688,7 +688,7 @@ a.a-btn {
 
 a.up {
     position: sticky;
-    left: 10px;
+    margin: 0 auto;
     bottom: -100px;
     background-color: rgba(4, 117, 192, .25);
     backdrop-filter: blur(10px) brightness(1);
@@ -703,6 +703,9 @@ a.up {
 
     transition: 1s all;
     }
+    a.up:hover {
+        background-color: rgba(4, 117, 192, .75);
+        }
     a.up.visible {
         opacity: 1;
         bottom: 10px;
@@ -710,6 +713,9 @@ a.up {
     a.up svg path {
         fill: rgba(var(--color-white), .75);
         }
+        a.up:hover svg path {
+            fill: rgba(var(--color-white), 1);
+            }
 
 /* GENERAL */
 
