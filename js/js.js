@@ -20,15 +20,49 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileIcon = document.querySelector('.mobile-icon');
     const main = document.querySelector('main');
     const body = document.body;
+    const html = document.documentElement;
+  
+    let scrollY = 0;
   
     if (mobileIcon && main) {
       const toggleMobileMenuEffects = () => {
         if (mobileIcon.checked) {
+          scrollY = window.scrollY;
+  
+          // Bloquea scroll sin alterar scroll actual
+          body.style.position = 'fixed';
+          body.style.top = `-${scrollY}px`;
+          body.style.left = '0';
+          body.style.right = '0';
+          body.style.overflow = 'hidden';
+  
+          // Desactiva scroll-behavior en html y body
+          body.style.scrollBehavior = 'auto';
+          html.style.scrollBehavior = 'auto';
+  
+          // Aplica blur
           main.style.filter = 'blur(10px)';
-          body.classList.add('no-scroll');
         } else {
+          // Limpia estilos de scroll bloqueado
+          body.style.position = '';
+          body.style.top = '';
+          body.style.left = '';
+          body.style.right = '';
+          body.style.overflow = '';
           main.style.filter = 'none';
-          body.classList.remove('no-scroll');
+  
+          // Desactiva scroll-behavior para evitar scroll suave
+          body.style.scrollBehavior = 'auto';
+          html.style.scrollBehavior = 'auto';
+  
+          // Restaura scroll instantáneamente
+          window.scrollTo(0, scrollY);
+  
+          // Restaura scroll-behavior original después de un breve tiempo
+          setTimeout(() => {
+            body.style.scrollBehavior = '';
+            html.style.scrollBehavior = '';
+          }, 50);
         }
       };
   
@@ -36,5 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleMobileMenuEffects(); // Por si ya está marcado al cargar
     }
   });
+    
+    
   
   
