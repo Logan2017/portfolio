@@ -19,18 +19,22 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function () {
     const mobileIcon = document.querySelector('.mobile-icon');
     const main = document.querySelector('main');
+    const body = document.body;
   
     if (mobileIcon && main) {
-      const toggleBlur = () => {
+      const toggleMobileMenuEffects = () => {
         if (mobileIcon.checked) {
           main.style.filter = 'blur(10px)';
+          body.classList.add('no-scroll');
         } else {
           main.style.filter = 'none';
+          body.classList.remove('no-scroll');
         }
       };
   
-      mobileIcon.addEventListener('change', toggleBlur);
-      toggleBlur(); // Por si ya está marcado al cargar
+      mobileIcon.addEventListener('change', toggleMobileMenuEffects);
+      toggleMobileMenuEffects(); // Por si ya está marcado al cargar
     }
   });
+  
   

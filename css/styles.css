@@ -393,6 +393,14 @@ body::before {
     top: 0;
     }
 
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed; /* bloquea el scroll incluso en móviles */
+    width: 100vw;
+    }
+      
+
 main {
     max-width: 480px;
     margin: 0 auto;
