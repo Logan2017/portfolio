@@ -1,3 +1,15 @@
+// Desactiva scroll suave al inicio de carga
+document.documentElement.style.scrollBehavior = 'auto';
+document.body.style.scrollBehavior = 'auto';
+
+// Lo vuelve a activar al terminar de cargar completamente
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.documentElement.style.scrollBehavior = '';
+    document.body.style.scrollBehavior = '';
+  }, 100);
+});
+
 // Función para aparición de la flecha de ir hacia arriba
 
 const elementos = document.querySelectorAll('.upWrapper');

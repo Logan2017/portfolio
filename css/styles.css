@@ -393,11 +393,6 @@ body::before {
     top: 0;
     }
 
-main {
-    max-width: 480px;
-    margin: 0 auto;
-    }
-
 /* HEADER */
 
 header {
@@ -821,7 +816,7 @@ h2::before {
     }
 
 .sectionWrapper {
-    max-width: 768px;
+    max-width: 400px;
     margin: 0 auto;
     }
 
@@ -1592,9 +1587,12 @@ footer section a {
         }
 
     main {
-        max-width: initial;
         min-height: calc(100vh - 297px);
         transition: filter 0.3s ease;
+        }
+
+    .sectionWrapper {
+        max-width: 768px;
         }
 
     section#sobre-mi {
