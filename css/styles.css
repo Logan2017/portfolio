@@ -505,8 +505,6 @@ header nav label ul a {
         position: fixed;
         }
 
-
-
 header nav label ul > a {
     position: absolute;
     top: -48px;
@@ -543,11 +541,10 @@ header nav ul a.active.selected {
         pointer-events: none;
         color: rgba(var(--color-white),1);
         }
-
-header nav ul li:nth-of-type(2) a.active.selected {
-    pointer-events: all;
-    }
-    header nav ul li:nth-of-type(2) a.active.selected:hover {
+    .mobile-icon:checked ~ ul li:nth-of-type(2) a.active.selected {
+        pointer-events: all;
+        }
+    .mobile-icon:checked ~ ul li:nth-of-type(2) a.active.selected:hover {
         pointer-events: all;
         }
 
@@ -666,8 +663,8 @@ input.mobile-icon:checked ~ .icon-mobile:after {
 /* BUTTONS */
 
 .btn {
-    background-color: transparent;
-    color: rgba(var(--color-primary-300), 1);
+    background-color: rgba(var(--color-primary-300), 1);
+    color: rgba(var(--color-primary-700), 1);
     border: 1px solid rgba(var(--color-primary-300), .75) !important;
     font-family: Rubik; 
     font-size: 18px;
@@ -685,11 +682,11 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     transition: all .3s;
     position: relative;
     font-weight: 600;
-    box-shadow: 0 3px 15px rgba(var(--color-white), .25);
     }
     .btn:hover {
         background-color: rgba(var(--color-white),1);
         color: rgba(var(--color-primary-700), 1);
+        box-shadow: 0 3px 15px rgba(var(--color-white), .25);
         }
 
 button.btn svg {
@@ -702,8 +699,22 @@ button.btn svg {
     fill: rgba(var(--color-primary-700), 1) !important;
     transition: all .3s;
     }
-    .btn:hover svg {
+
+.btn.secondary {
+    background-color: transparent;
+    color: rgba(var(--color-primary-300), 1);
+    }
+    .btn.secondary:hover {
+        background-color: rgba(var(--color-primary-300), 1);
+        color: rgba(var(--color-primary-700), 1);
+        border: 1px dotted rgba(var(--color-primary-300), 1);
         }
+        .btn.secondary svg {
+            fill: rgb(var(--color-primary-300), 1) !important;
+            }
+            .btn.secondary:hover svg {
+                fill: rgb(var(--color-primary-700), 1) !important;
+                }
 
 .btn.comming {
     background-color: transparent;
@@ -729,7 +740,7 @@ a.a-btn {
     text-decoration: none;
     }
 
-section.upWrapper  {
+section.upWrapper {
     height: 0;
     padding: 0 !important;
     bottom: -80px;
@@ -748,7 +759,7 @@ a.up {
     position: sticky;
     margin: 0 auto;
     bottom: -100px;
-    background-color: rgba(4, 117, 192, .25);
+    background-color: rgba(var(--color-primary-700), .25);
     backdrop-filter: blur(6px) brightness(1);
     width: var(--size-4xl);
     height: var(--size-4xl);
@@ -756,12 +767,12 @@ a.up {
     justify-content: center;
     align-items: center;
     border-radius: var(--size-10xl);
-    box-shadow: 0 var(--size-s) var(--size-s) rgba(0, 0, 0, .1);
-    transform: translate(0, -75px);
+    transform: translate(0, -65px);
     transition: 1s all;
     }
     a.up:hover {
-        background-color: rgba(4, 117, 192, .75);
+        backdrop-filter: blur(6px) brightness(1.5);
+        box-shadow: 0 5px 10px rgba(var(--color-black), .25);
         }
     a.up svg path {
         fill: rgba(var(--color-white), .75);
@@ -877,7 +888,7 @@ section#sobre-mi > div > div > div > img{
 section#sobre-mi .goPortfolio {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: var(--size-m);
     }
 
@@ -885,14 +896,18 @@ section#sobre-mi .goPortfolio a {
     text-decoration: none;
     }
 
+section#sobre-mi .goPortfolio div {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-m);
+    padding: 0;
+    }
+
 section#sobre-mi .goPortfolio a.btn svg {
-    fill: rgb(var(--color-primary-300));
+    fill: rgb(var(--color-primary-700), 1);
     width: 10px;
     transform: scale(2);
     }
-    section#sobre-mi .goPortfolio a.btn:hover svg {
-        fill: rgb(var(--color-primary-700));
-        }
 
 
 /* HERO */
@@ -978,10 +993,19 @@ section#intro #intro-description ul {
 /* HIGHLIGHT SECTION */
 
 section.highlight {
-    backdrop-filter: blur(var(--size-5xl));
     background-color: rgba(var(--color-primary-700), .5);
     padding: var(--size-4xl) var(--size-m);
     }
+    section.highlight.nav {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        section.highlight.nav p {
+            color: rgba(var(--color-primary-300), .75);
+            }
 
 section.highlight h2 {
     width: 100%;
@@ -1571,7 +1595,7 @@ footer section a {
         header nav > ul li .btn:hover {
             font-size: 18px;
             background-color: rgba(var(--color-white),1);
-            color: rgba(var(--color-primary-500), 1);
+            color: rgba(var(--color-primary-700), 1);
             }
 
     h1 {
@@ -1735,7 +1759,7 @@ footer section a {
     /* TRABAJOS */
 
     section#trabajos {
-        margin-top: var(--size-10xl);
+        margin-top: var(--size-5xl);
         }
 
     section#trabajos .sectionWrapper::before {
