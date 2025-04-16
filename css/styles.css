@@ -1348,7 +1348,8 @@ footer {
     font-weight: 300;
     backdrop-filter: blur(670px);
     opacity: .85;
-    background-color: rgba(var(--color-primary-300), .05);
+    background-color: rgba(var(--color-primary-800), 1);
+    box-shadow: 0 200px 0 50px rgba(var(--color-primary-800), 1);
     }
 
 footer .footerWrapper {
