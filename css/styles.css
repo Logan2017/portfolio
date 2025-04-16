@@ -674,7 +674,7 @@ input.mobile-icon:checked ~ .icon-mobile:after {
     background-color: transparent;
     color: rgba(var(--color-primary-300), 1);
     border: 1px solid rgba(var(--color-primary-300), .75) !important;
-    font-family: Rubik;
+    font-family: Rubik; 
     font-size: 18px;
     border-radius: 100px;
     flex-flow: row;
