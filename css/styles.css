@@ -386,12 +386,17 @@ body::before {
     display: block;
     width: 101vw;
     height: 100%;
-    background-image: url(../img/bg-body.jpg);
+    background-image: url(../img/bg-body.webp);
     background-size: cover;
     z-index: -30;
     position: fixed;
     top: 0;
-}
+    }
+
+main {
+    max-width: 480px;
+    margin: 0 auto;
+    }
 
 /* HEADER */
 
@@ -465,30 +470,34 @@ header nav label ul li {
     width: 80%;
     text-align: center;
     border-bottom: 2px solid rgba(var(--color-white), 0.25);
-    transform: translate(0 , 95px);
-    transition: all 1s;
+    transform: scale(3);
+    filter: blur(50px);
+    transition: all .1s;
     }
     header nav label ul li:first-of-type {
-        transform: translate(0 , 80px);
+        transform: scale(3);
         transition: all 1s;
         }
     header nav label ul li:last-child {
         border-bottom: none;
-        transform: translate(0 , 105px);
+        transform: scale(3);
         transition: all 1s;
         }
-    .mobile-icon:checked ~ .submenu li:first-of-type {
-        transform: translate(0 , 0);
-        transition: 0.5s;
-        }
+        .mobile-icon:checked ~ .submenu li:first-of-type {
+            transform: scale(1);
+            filter: blur(0px);
+            transition: 0.5s;
+            }
         .mobile-icon:checked ~ .submenu li:nth-last-of-type(2) {
-            transform: translate(0 , 0);
+            transform: scale(1);
+            filter: blur(0px);
             transition: 1s;
             }
-            .mobile-icon:checked ~ .submenu li:last-of-type {
-                transform: translate(0 , 0);
-                transition: 1.5s;
-                }
+        .mobile-icon:checked ~ .submenu li:last-of-type {
+            transform: scale(1);
+            filter: blur(0px);
+            transition: 1.5s;
+            }
 
 header nav label ul a {
     width: 100%;
@@ -863,6 +872,7 @@ section#sobre-mi div div img ,
     backdrop-filter: blur(261px);
     background-color: rgba(var(--color-white), .1);
     clip-path: circle(50% at 50% 50%);
+    text-align: center;
     }
 
 section#sobre-mi > div > div > div > img{
@@ -1582,6 +1592,7 @@ footer section a {
         }
 
     main {
+        max-width: initial;
         min-height: calc(100vh - 297px);
         transition: filter 0.3s ease;
         }
