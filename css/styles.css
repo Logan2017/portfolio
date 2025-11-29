@@ -565,6 +565,11 @@ header .logo svg {
     transition: all .3s;
 }
 
+.mobile-icon:checked~.submenu .logo svg {
+    fill: rgba(var(--color-primary-300), 1);
+    transform: scale(0.67) translate(0px, 2px);
+}
+
 @media (prefers-color-scheme: dark) {
     header .logo svg {
         fill: rgba(var(--color-primary-300), 1);
@@ -745,7 +750,13 @@ header nav label ul .btn {
     backdrop-filter: blur(6px) brightness(1);
     z-index: 999;
     border-radius: var(--size-s);
-    background-color: rgba(4, 117, 192, .5);
+    background-color: rgba(var(--color-primary-600), .1);
+}
+
+@media (prefers-color-scheme: dark) {
+    .mobile-menu-icon {
+        background-color: rgba(4, 117, 192, .5);
+    }
 }
 
 .mobile-menu-icon label {
@@ -773,9 +784,18 @@ header nav label ul .btn {
 .mobile-menu-icon span:after {
     width: var(--size-xl);
     height: 3px;
-    background-color: rgba(var(--color-primary-300), 1);
+    background-color: rgba(var(--color-primary-700), 1);
     display: block;
     margin-right: .65rem;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .mobile-menu-icon span,
+    .mobile-menu-icon span:before,
+    .mobile-menu-icon span:after {
+        background-color: rgba(var(--color-primary-300), 1);
+    }
 }
 
 .mobile-menu-icon span:before {
@@ -833,6 +853,13 @@ input.mobile-icon:checked~.icon-mobile:before {
     transform: rotate(45deg);
     -webkit-transition-delay: 0s, 0.2s;
     transition-delay: 0s, 0.2s;
+    background-color: rgba(var(--color-primary-300), 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    input.mobile-icon:checked~.icon-mobile:before {
+        background-color: rgba(var(--color-primary-700), 1);
+    }
 }
 
 .mobile-menu-icon .icon-mobile:after {
@@ -850,6 +877,13 @@ input.mobile-icon:checked~.icon-mobile:after {
     transform: rotate(-45deg);
     -webkit-transition-delay: 0s, 0.2s;
     transition-delay: 0s, 0.2s;
+    background-color: rgba(var(--color-primary-300), 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    input.mobile-icon:checked~.icon-mobile:after {
+        background-color: rgba(var(--color-primary-700), 1);
+    }
 }
 
 
