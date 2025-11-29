@@ -1736,6 +1736,7 @@ section#trabajos div>a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    color: rgba(var(--color-primary-700), 1);
 }
 
 section#trabajos a:hover,
