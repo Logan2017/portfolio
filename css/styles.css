@@ -1257,10 +1257,17 @@ section#intro #intro-details .tools {
 section#intro #intro-details img {
     height: 65px;
     width: 65px;
-    filter: brightness(1.5);
     backdrop-filter: blur(1px);
-    background-color: rgba(var(--color-primary-300) .1);
+    background-color: rgba(var(--color-primary-600), .25);
     border-radius: var(--size-s);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    section#intro #intro-details img {
+        background-color: rgba(var(--color-primary-300), .1);
+        filter: brightness(1.5);
+    }
 }
 
 section#intro #intro-description {
