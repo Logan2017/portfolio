@@ -498,18 +498,20 @@ body {
     font-weight: 400;
     line-height: var(--size-2xl);
     width: 100%;
-    min-width: 375px;
+    min-width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     background-size: cover;
-    background-color: rgba(var(--color-primary-700), 1);
+    background-color: rgba(var(--color-primary-300), 1);
+    overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
     body {
         color: rgba(var(--color-primary-300), 1);
+        background-color: rgba(var(--color-primary-700), 1);
     }
 }
 
@@ -562,12 +564,10 @@ header .logo {
 header .logo svg {
     fill: rgba(var(--color-primary-700), 1);
     transform: scale(0.75);
-    transition: all .3s;
 }
 
 .mobile-icon:checked~.submenu .logo svg {
     fill: rgba(var(--color-primary-300), 1);
-    transform: scale(0.67) translate(0px, 2px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -608,7 +608,7 @@ header nav label ul {
     z-index: -1;
     backdrop-filter: blur(4px);
     pointer-events: none;
-    transition: all 1s;
+    transition: opacity 1s;
 }
 
 .mobile-icon:checked~.submenu {
@@ -680,7 +680,6 @@ header nav label ul>a {
 }
 
 .mobile-icon:checked~ul>a {
-    transform: scale(1.1) translate(15px, -2px);
     opacity: 1;
 }
 
@@ -1631,7 +1630,7 @@ section#trabajos .sectionWrapper::before {
     border-radius: var(--size-2xl);
     bottom: -18px;
     left: -10%;
-    filter: blur(10px);
+    filter: blur(30px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1856,6 +1855,7 @@ footer section a:hover {
     body {
         max-width: initial;
         font-size: 18px;
+        overflow-x: initial;
     }
 
     /* BUTTONS */
