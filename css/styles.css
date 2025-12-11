@@ -1654,7 +1654,7 @@ section#trabajos .sectionWrapper article video {
 
     section#trabajos .sectionWrapper article img,
     section#trabajos .sectionWrapper article video {
-        mix-blend-mode: none;
+        mix-blend-mode: initial;
         filter: none;
     }
 }
@@ -1685,8 +1685,8 @@ section#trabajos article div {
 
 @media (prefers-color-scheme: dark) {
     section#trabajos article div {
-        background: linear-gradient(333deg, rgba(var(--color-primary-900), .1) 0%, rgba(var(--color-primary-200), 0.1) 65%, rgba(var(--color-white), 0.1) 68%, rgba(var(--color-white), .5) 100%);
-        box-shadow: 0 10px 14px rgb(var(--color-primary-800), .05), inset 0 1px var(--size-s) rgba(var(--color-primary-100), .5);
+        background: linear-gradient(333deg, rgba(var(--color-primary-900), 0.1) 0%, rgba(var(--color-primary-200), 0.05) 45%, rgba(var(--color-white), 0.05) 68%, rgba(var(--color-white), 0) 100%);
+        box-shadow: 0 10px 14px rgb(var(--color-primary-800), .05), inset 0 1px var(--size-s) rgba(var(--color-primary-100), .05);
     }
 }
 
@@ -1776,6 +1776,15 @@ section#trabajos a:hover,
 section#trabajos a:visited {
     color: rgba(var(--color-primary-700), 1);
 }
+
+@media (prefers-color-scheme: dark) {
+
+    section#trabajos a:hover,
+    section#trabajos a:visited {
+        color: rgba(var(--color-white), 1);
+    }
+}
+
 
 /* FOOTER */
 
