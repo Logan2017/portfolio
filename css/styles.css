@@ -902,6 +902,7 @@ main::before {
     top: -70px;
     background: linear-gradient(180deg, rgb(231 249 254) 0%, rgba(var(--color-primary-900), 0) 100%);
     opacity: 1;
+    background: red;
 }
 
 main::after {
