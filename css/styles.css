@@ -1075,7 +1075,7 @@ section.upWrapper {
     bottom: -80px;
     position: sticky;
     opacity: 0;
-    z-index: 1;
+    z-index: 11;
     transition: 1s all;
 }
 
@@ -1089,7 +1089,7 @@ a.up {
     position: sticky;
     margin: 0 auto;
     bottom: -100px;
-    background-color: rgba(var(--color-primary-700), .25);
+    background-color: rgba(var(--color-primary-500), .25);
     backdrop-filter: blur(6px) brightness(1);
     width: var(--size-4xl);
     height: var(--size-4xl);
@@ -1101,17 +1101,35 @@ a.up {
     transition: 1s all;
 }
 
+@media (prefers-color-scheme: dark) {
+    a.up {
+        background-color: rgba(var(--color-primary-700), .25);
+    }
+}
+
 a.up:hover {
     backdrop-filter: blur(6px) brightness(1.5);
-    box-shadow: 0 5px 10px rgba(var(--color-black), .25);
+    box-shadow: 0 5px 10px rgba(var(--color-black), .15);
 }
 
 a.up svg path {
-    fill: rgba(var(--color-white), .75);
+    fill: rgba(var(--color-primary-500), .75);
+}
+
+@media (prefers-color-scheme: dark) {
+    a.up svg path {
+        fill: rgba(var(--color-white), .75);
+    }
 }
 
 a.up:hover svg path {
-    fill: rgba(var(--color-white), 1);
+    fill: rgba(var(--color-primary-700), .75);
+}
+
+@media (prefers-color-scheme: dark) {
+    a.up:hover svg path {
+        fill: rgba(var(--color-white), 1);
+    }
 }
 
 /* GENERAL */
