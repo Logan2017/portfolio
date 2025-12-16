@@ -1931,11 +1931,11 @@ footer section a:hover {
 
 /* POSICIONES */
 .gradient-blur.bottom {
-    bottom: -50px;
+    bottom: -70px;
 }
 
 .gradient-blur.top {
-    top: -50px;
+    top: -70px;
     transform: rotate(180deg);
 }
 
@@ -2540,6 +2540,16 @@ footer section a:hover {
         flex-direction: row;
         align-items: center;
         gap: var(--size-2xl);
+    }
+
+    /* POSICIONES */
+    .gradient-blur.bottom {
+        bottom: 0px;
+    }
+
+    .gradient-blur.top {
+        top: 0px;
+        transform: rotate(180deg);
     }
 
 }
