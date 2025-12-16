@@ -890,7 +890,7 @@ input.mobile-icon:checked~.icon-mobile:after {
 
 /* MAIN */
 
-/*main::before {
+main::before {
     content: '';
     display: block;
     width: 100dvw;
@@ -902,7 +902,7 @@ input.mobile-icon:checked~.icon-mobile:after {
     top: -90px;
     background: linear-gradient(180deg, rgb(231 249 254) 0%, rgba(var(--color-primary-900), 0) 100%);
     opacity: 1;
-}*/
+}
 
 main::after {
     content: '';
