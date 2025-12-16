@@ -1931,7 +1931,7 @@ footer section a:hover {
 
 /* POSICIONES */
 .gradient-blur.bottom {
-    bottom: 50px;
+    bottom: -50px;
 }
 
 .gradient-blur.top {
